@@ -7,250 +7,292 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #1a2e52;
-  --gold: #c8973a;
-  --green: #1a7a4b;
-  --green-bg: #e8f7ef;
-  --red: #c0392b;
-  --red-bg: #fdf0ef;
-  --amber: #b7791f;
-  --amber-bg: #fffbe6;
-  --gray: #6b7280;
-  --gray-bg: #f3f4f6;
-  --border: #e5e7eb;
+  --navy: #0d1f3c;
+  --navy2: #1a3260;
+  --gold: #e8a800;
+  --gold-dark: #b07d00;
+  --green: #0a6b38;
+  --green-bg: #d4f5e2;
+  --green-border: #2db36e;
+  --red: #b01010;
+  --red-bg: #ffd9d9;
+  --red-border: #e05050;
+  --amber: #7a4e00;
+  --amber-bg: #fff3cc;
+  --amber-border: #d4a017;
+  --gray: #444d5c;
+  --gray-bg: #e8eaed;
+  --gray-border: #9ba3af;
+  --border: #c5c9d2;
   --white: #ffffff;
-  --bg: #f5f6fa;
+  --bg: #eef0f5;
 }
+
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html { font-size: 16px; }
+html { font-size: 17px; }
 body {
   background: var(--bg);
-  color: #1f2937;
+  color: #0d1520;
   font-family: 'Nunito', sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 17px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
 /* ── HEADER ── */
 .header {
   background: var(--navy);
-  padding: 28px 18px 24px;
+  padding: 30px 20px 26px;
   text-align: center;
+  border-bottom: 4px solid var(--gold);
 }
 .header-title {
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   font-weight: 900;
   color: #fff;
   line-height: 1.2;
   margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
-.header-title span { color: #fce49a; }
-.header-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+.header-title span { color: var(--gold); }
+.header-sub { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 22px; font-weight: 600; }
 
-/* Saldo box in header */
 .saldo-card {
-  background: rgba(255,255,255,0.10);
-  border: 1.5px solid rgba(255,255,255,0.18);
-  border-radius: 16px;
-  padding: 18px 20px;
+  background: var(--gold);
+  border-radius: 18px;
+  padding: 20px 24px;
   display: inline-block;
   width: 100%;
-  max-width: 340px;
+  max-width: 360px;
 }
-.saldo-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); font-weight: 700; margin-bottom: 6px; }
-.saldo-amount { font-size: 2rem; font-weight: 900; color: #fce49a; letter-spacing: -0.01em; }
-.saldo-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
+.saldo-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--navy);
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.saldo-amount {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.saldo-note {
+  font-size: 0.85rem;
+  color: rgba(13,31,60,0.65);
+  margin-top: 5px;
+  font-weight: 700;
+}
 
 /* ── BOTTOM NAV ── */
 .bottom-nav {
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  background: white;
-  border-top: 1.5px solid var(--border);
+  background: var(--navy);
+  border-top: 3px solid var(--gold);
   display: flex;
   z-index: 200;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
   padding-bottom: env(safe-area-inset-bottom);
 }
 .bnav-btn {
   flex: 1;
   display: flex; flex-direction: column; align-items: center;
-  padding: 10px 4px 8px;
+  padding: 13px 4px 11px;
   background: none; border: none;
   font-family: 'Nunito', sans-serif;
-  font-size: 0.68rem; font-weight: 700;
-  color: var(--gray);
+  font-size: 0.8rem; font-weight: 800;
+  color: rgba(255,255,255,0.5);
   cursor: pointer;
-  transition: color 0.15s;
-  gap: 3px;
+  transition: color 0.15s, background 0.15s;
+  gap: 4px;
 }
-.bnav-btn .icon { font-size: 1.35rem; line-height: 1; }
-.bnav-btn.active { color: var(--navy); }
-.bnav-btn.active .icon { filter: none; }
-.bnav-dot {
-  width: 5px; height: 5px; border-radius: 50%;
+.bnav-btn .icon { font-size: 1.6rem; line-height: 1; }
+.bnav-btn.active {
+  color: var(--gold);
+  background: rgba(232,168,0,0.12);
+}
+.bnav-line {
+  width: 28px; height: 3px; border-radius: 2px;
   background: var(--gold);
-  margin: 0 auto;
   visibility: hidden;
 }
-.bnav-btn.active .bnav-dot { visibility: visible; }
+.bnav-btn.active .bnav-line { visibility: visible; }
 
 /* ── MAIN ── */
-.main { padding: 16px 14px 90px; }
+.main { padding: 18px 14px 100px; }
 .page { display: none; }
 .page.active { display: block; }
 
 /* ── SECTION TITLE ── */
 .sec-title {
-  font-size: 1.1rem; font-weight: 900;
+  font-size: 1.2rem; font-weight: 900;
   color: var(--navy);
-  margin-bottom: 14px;
-  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
 }
 .sec-title::before {
   content: '';
-  width: 4px; height: 20px;
+  width: 5px; height: 24px;
   background: var(--gold);
-  border-radius: 2px; flex-shrink: 0;
+  border-radius: 3px; flex-shrink: 0;
 }
 
 /* ── LEGEND ── */
 .legend {
   background: var(--amber-bg);
-  border: 1.5px solid #f6d473;
-  border-radius: 12px;
-  padding: 12px 14px;
-  margin-bottom: 14px;
-  font-size: 0.82rem;
+  border: 2px solid var(--amber-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
   color: var(--amber);
 }
-.legend strong { display: block; font-size: 0.85rem; margin-bottom: 8px; color: #7d5a10; }
-.legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
-.leg-row { display: flex; align-items: center; gap: 7px; }
+.legend strong {
+  display: block; font-size: 0.95rem; margin-bottom: 10px; color: #5a3800; font-weight: 900;
+}
+.legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.leg-row { display: flex; align-items: center; gap: 8px; font-weight: 700; color: #4a3000; }
 
 /* ── BADGES ── */
 .badge {
   display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 20px; font-size: 0.72rem; font-weight: 800;
-  white-space: nowrap; padding: 3px 9px;
+  border-radius: 8px; font-size: 0.8rem; font-weight: 900;
+  white-space: nowrap; padding: 4px 10px; min-width: 70px;
+  border-width: 2px; border-style: solid;
 }
-.b-lunas { background: var(--green-bg); color: var(--green); border: 1.5px solid #7ecba1; }
-.b-dapat { background: var(--amber-bg); color: var(--amber); border: 1.5px solid #f6d473; }
-.b-belum { background: var(--red-bg); color: var(--red); border: 1.5px solid #e8a49e; }
-.b-libur { background: var(--gray-bg); color: var(--gray); border: 1.5px solid #d1d5db; }
+.b-lunas  { background: var(--green-bg);  color: var(--green);  border-color: var(--green-border); }
+.b-dapat  { background: var(--amber-bg);  color: var(--amber);  border-color: var(--amber-border); }
+.b-belum  { background: var(--red-bg);    color: var(--red);    border-color: var(--red-border); }
+.b-libur  { background: var(--gray-bg);   color: var(--gray);   border-color: var(--gray-border); }
 
 /* ── LAPORAN CARDS ── */
 .lcard {
   background: white;
-  border-radius: 16px;
-  border: 1.5px solid var(--border);
-  margin-bottom: 14px;
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  margin-bottom: 18px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 12px rgba(13,31,60,0.12);
 }
 .lcard-head {
   background: var(--navy);
-  padding: 14px 16px;
+  padding: 16px 18px;
   display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
 }
 .lcard-num {
-  font-size: 2rem; font-weight: 900;
-  color: rgba(255,255,255,0.12);
-  line-height: 1;
+  font-size: 2.6rem; font-weight: 900;
+  color: #ffffff;
+  line-height: 1; flex-shrink: 0;
 }
 .lcard-right { text-align: right; }
-.lcard-lokasi { color: #fce49a; font-weight: 800; font-size: 0.92rem; }
-.lcard-tgl { color: rgba(255,255,255,0.45); font-size: 0.75rem; }
-.lcard-body { padding: 0; }
-.lcard-section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.lcard-lokasi { color: var(--gold); font-weight: 900; font-size: 1.05rem; line-height: 1.3; }
+.lcard-tgl { color: #ffffff; font-size: 0.85rem; font-weight: 700; margin-top: 3px; }
+
+.lcard-body {}
+.lcard-section { padding: 14px 18px; border-bottom: 2px solid var(--bg); }
 .lcard-section:last-child { border-bottom: none; }
 .lcard-section-title {
-  font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--gray); margin-bottom: 8px;
+  font-size: 0.78rem; font-weight: 900; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--gray); margin-bottom: 10px;
 }
 .lrow {
   display: flex; justify-content: space-between; align-items: flex-start;
-  padding: 5px 0; font-size: 0.88rem; border-bottom: 1px dashed #f0ede6;
+  padding: 7px 0; font-size: 0.95rem; border-bottom: 1px dashed #dde0e7;
 }
 .lrow:last-child { border-bottom: none; }
-.lrow .desc { color: #444; flex: 1; padding-right: 10px; }
-.lrow .amt { font-weight: 800; white-space: nowrap; }
+.lrow .desc { color: #222; flex: 1; padding-right: 12px; font-weight: 600; }
+.lrow .amt { font-weight: 900; white-space: nowrap; font-size: 1rem; }
 .lrow .amt.in { color: var(--green); }
 .lrow .amt.out { color: var(--red); }
 .total-lrow {
   display: flex; justify-content: space-between;
-  padding: 8px 0 0; font-weight: 800; font-size: 0.9rem;
-  border-top: 2px solid var(--border); margin-top: 4px;
+  padding: 10px 0 0; font-weight: 900; font-size: 1rem;
+  border-top: 2.5px solid var(--border); margin-top: 6px;
 }
 .saldo-strip {
   background: var(--navy);
-  padding: 13px 16px;
+  padding: 15px 18px;
   display: flex; justify-content: space-between; align-items: center;
 }
-.saldo-strip .lbl { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
-.saldo-strip .amt { font-size: 1.15rem; font-weight: 900; color: #fce49a; }
+.saldo-strip .lbl { font-size: 0.82rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; }
+.saldo-strip .amt { font-size: 1.35rem; font-weight: 900; color: var(--gold); }
 
-/* ── TABLE (horizontal scroll) ── */
+/* ── TABLE ── */
 .tbl-wrap {
   background: white;
-  border-radius: 16px;
-  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  border: 2px solid var(--border);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  margin-bottom: 14px;
+  box-shadow: 0 3px 12px rgba(13,31,60,0.12);
+  margin-bottom: 16px;
 }
 .tbl-top {
   background: var(--navy);
-  padding: 13px 16px;
+  padding: 16px 18px;
+  border-bottom: 3px solid var(--gold);
 }
-.tbl-top .tit { color: white; font-weight: 800; font-size: 0.95rem; }
-.tbl-top .sub { color: rgba(255,255,255,0.45); font-size: 0.75rem; }
+.tbl-top .tit { color: white; font-weight: 900; font-size: 1.05rem; }
+.tbl-top .sub { color: rgba(255,255,255,0.55); font-size: 0.85rem; font-weight: 700; margin-top: 2px; }
 .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.tbl-scroll::-webkit-scrollbar { height: 4px; }
-.tbl-scroll::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
+.tbl-scroll::-webkit-scrollbar { height: 5px; }
+.tbl-scroll::-webkit-scrollbar-thumb { background: #b0b8c8; border-radius: 3px; }
 
-table { border-collapse: collapse; font-size: 0.78rem; white-space: nowrap; width: 100%; }
+table { border-collapse: collapse; font-size: 0.85rem; white-space: nowrap; width: 100%; }
 th {
-  background: #f0f1f5; padding: 9px 10px;
-  text-align: center; color: var(--navy);
-  font-weight: 800; font-size: 0.68rem;
-  text-transform: uppercase; letter-spacing: 0.04em;
-  border-bottom: 2px solid var(--border);
+  background: #e4e8f0;
+  padding: 10px 11px;
+  text-align: center;
+  color: var(--navy);
+  font-weight: 900; font-size: 0.75rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 2.5px solid var(--border);
   position: sticky; top: 0; z-index: 1;
 }
 th.sticky-col, td.sticky-col {
   position: sticky; left: 0; z-index: 2;
 }
-th.sticky-col { background: #e8eaf0; z-index: 3; }
-td.sticky-col { background: white; font-weight: 700; font-size: 0.8rem; border-right: 1.5px solid var(--border); }
+th.sticky-col { background: #d8dce8; z-index: 3; }
+td.sticky-col {
+  background: white; font-weight: 800; font-size: 0.88rem;
+  border-right: 2px solid var(--border); color: #0d1520;
+}
 td {
-  padding: 9px 10px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 11px;
+  border-bottom: 1.5px solid #eceef2;
   text-align: center;
 }
 tr:last-child td { border-bottom: none; }
-tr:nth-child(even) td:not(.sticky-col) { background: #fafafa; }
-tr:nth-child(even) td.sticky-col { background: #f8f8f8; }
-.tbl-foot td { background: #f0f1f5 !important; font-weight: 800; color: var(--navy); border-top: 2px solid var(--border); }
-.tbl-foot td.sticky-col { background: #e8eaf0 !important; }
+tr:nth-child(even) td:not(.sticky-col) { background: #f5f7fb; }
+tr:nth-child(even) td.sticky-col { background: #f0f2f8; }
+.tbl-foot td {
+  background: #e4e8f0 !important; font-weight: 900;
+  color: var(--navy); border-top: 2.5px solid var(--border);
+  font-size: 0.82rem;
+}
+.tbl-foot td.sticky-col { background: #d8dce8 !important; }
 
-/* Belum warning on name */
+/* Badge in table — compact icon only */
+.tbl-scroll .badge { min-width: 36px; padding: 3px 7px; font-size: 0.82rem; }
+
 .belum-tag {
   display: inline-block;
   background: var(--red-bg); color: var(--red);
-  font-size: 0.66rem; font-weight: 800;
-  padding: 1px 6px; border-radius: 8px;
-  margin-left: 4px; vertical-align: middle;
+  font-size: 0.72rem; font-weight: 900;
+  padding: 2px 7px; border-radius: 8px;
+  margin-left: 5px; vertical-align: middle;
+  border: 1.5px solid var(--red-border);
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-title">Punguan <span>Si Raja Sonang</span></div>
-  <div class="header-sub">Laporan Keuangan · Jul 2024 – Mar 2026</div>
+  <div class="header-sub">📅 Laporan Keuangan · Jul 2024 – Mar 2026</div>
   <div class="saldo-card">
     <div class="saldo-label">💰 Saldo Kas Sekarang</div>
     <div class="saldo-amount">Rp 2.451.000</div>
@@ -258,16 +300,15 @@ tr:nth-child(even) td.sticky-col { background: #f8f8f8; }
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <button class="bnav-btn active" onclick="gotoPage(this,'laporan')">
-    <div class="icon">📋</div><div>Laporan</div><div class="bnav-dot"></div>
+    <div class="icon">📋</div><div>Laporan</div><div class="bnav-line"></div>
   </button>
   <button class="bnav-btn" onclick="gotoPage(this,'arisan')">
-    <div class="icon">🏆</div><div>Arisan</div><div class="bnav-dot"></div>
+    <div class="icon">🏆</div><div>Arisan</div><div class="bnav-line"></div>
   </button>
   <button class="bnav-btn" onclick="gotoPage(this,'iuran')">
-    <div class="icon">💵</div><div>Iuran</div><div class="bnav-dot"></div>
+    <div class="icon">💵</div><div>Iuran</div><div class="bnav-line"></div>
   </button>
 </div>
 
@@ -283,21 +324,21 @@ tr:nth-child(even) td.sticky-col { background: #f8f8f8; }
 <div id="page-arisan" class="page">
   <div class="sec-title">Daftar Arisan</div>
   <div class="legend">
-    <strong>📌 Cara baca tabel ini:</strong>
+    <strong>📌 Cara Baca Tabel:</strong>
     <div class="legend-grid">
       <div class="leg-row"><span class="badge b-lunas">✓ LUNAS</span> Sudah bayar</div>
-      <div class="leg-row"><span class="badge b-dapat">🏆 DAPAT</span> Giliran dapat arisan</div>
+      <div class="leg-row"><span class="badge b-dapat">🏆 DAPAT</span> Giliran dapat</div>
       <div class="leg-row"><span class="badge b-belum">✗ BELUM</span> Belum bayar</div>
-      <div class="leg-row"><span class="badge b-libur">— LIBUR</span> Tidak ada arisan</div>
+      <div class="leg-row"><span class="badge b-libur">— LIBUR</span> Tidak arisan</div>
     </div>
-    <div style="margin-top:8px;font-size:0.8rem;color:#7d5a10">
+    <div style="margin-top:10px;font-size:0.88rem;color:#5a3800;font-weight:700">
       ⚠️ Yang dapat giliran arisan <b>tidak perlu bayar</b> sesi tersebut.
     </div>
   </div>
   <div class="tbl-wrap">
     <div class="tbl-top">
       <div class="tit">Arisan Rp 100.000 / Orang</div>
-      <div class="sub">15 Anggota · 16 Pertemuan · Geser ke kanan →</div>
+      <div class="sub">15 Anggota · 16 Pertemuan · ← Geser ke kanan →</div>
     </div>
     <div class="tbl-scroll"><table id="tbl-arisan"></table></div>
   </div>
@@ -307,28 +348,27 @@ tr:nth-child(even) td.sticky-col { background: #f8f8f8; }
 <div id="page-iuran" class="page">
   <div class="sec-title">Daftar Iuran KK</div>
   <div class="legend">
-    <strong>📌 Cara baca tabel ini:</strong>
+    <strong>📌 Cara Baca Tabel:</strong>
     <div class="legend-grid">
       <div class="leg-row"><span class="badge b-lunas">✓ LUNAS</span> Sudah bayar Rp 30.000</div>
       <div class="leg-row"><span class="badge b-belum">✗ BELUM</span> Belum bayar</div>
     </div>
-    <div style="margin-top:8px;font-size:0.8rem;color:#7d5a10">
+    <div style="margin-top:10px;font-size:0.88rem;color:#5a3800;font-weight:700">
       ⚠️ Iuran <b>wajib dibayar semua</b> tanpa terkecuali di setiap pertemuan.
     </div>
   </div>
   <div class="tbl-wrap">
     <div class="tbl-top">
       <div class="tit">Iuran Rp 30.000 / KK</div>
-      <div class="sub">15 Anggota · 16 Pertemuan · Geser ke kanan →</div>
+      <div class="sub">15 Anggota · 16 Pertemuan · ← Geser ke kanan →</div>
     </div>
     <div class="tbl-scroll"><table id="tbl-iuran"></table></div>
   </div>
 </div>
 
-</div><!-- /main -->
+</div>
 
 <script>
-// ── DATA ──
 const sessions = [
   {no:1,  tgl:"09 Jul\n2024",  lok:"Ruth Tanjung"},
   {no:2,  tgl:"05 Okt\n2024",  lok:"Julius Sitinjak"},
@@ -410,7 +450,6 @@ const laporan = [
    klr:[],tk:0,sa:2451000},
 ];
 
-// winAt = index 0-based sesi dimana dia DAPAT arisan
 const anggotaArisan = [
   {nama:"Julius Sitinjak",               winAt:1,  raw:[1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0]},
   {nama:"Kareen Pakpahan",               winAt:10, raw:[1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1]},
@@ -439,7 +478,7 @@ const anggotaIuran = [
   {nama:"Marcello Manurung",             d:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},
   {nama:"Mikhael Pakpahan",              d:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},
   {nama:"Olivia Pardosi / Br. Sitinjak", d:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},
-  {nama:"Randa Sinaga",                  d:[1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0]},
+  {nama:"Randa Sinaga",                  d:[1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,0]},
   {nama:"Ruth Tanjung",                  d:[1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0]},
   {nama:"Santa Nainggolan",              d:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},
   {nama:"Tonggi Gultom",                 d:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},
@@ -447,7 +486,6 @@ const anggotaIuran = [
   {nama:"Zofran Pakpahan",               d:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},
 ];
 
-// ── HELPERS ──
 function rp(n) { return 'Rp\u00a0' + Number(n).toLocaleString('id-ID'); }
 
 function arisanStatus(a, i) {
@@ -462,39 +500,38 @@ function badge(s) {
   return `<span class="badge b-libur">—</span>`;
 }
 
-// ── RENDER LAPORAN ──
 function renderLaporan() {
   const el = document.getElementById('laporanList');
   laporan.forEach(l => {
     const isTA = l.lok === 'TIDAK ARISAN';
     const keluarRows = l.klr.length
-      ? l.klr.map(k=>`<div class="lrow"><span class="desc">${k.ket}${k.tgl?` <em style="font-size:0.72rem;color:#bbb">(${k.tgl})</em>`:''}</span><span class="amt out">${rp(k.j)}</span></div>`).join('')
-      : `<div class="lrow"><span class="desc" style="color:var(--gray);font-style:italic">Tidak ada pengeluaran</span></div>`;
+      ? l.klr.map(k=>`<div class="lrow"><span class="desc">${k.ket}${k.tgl?` <em style="font-size:0.8rem;color:#888;font-style:normal">(${k.tgl})</em>`:''}</span><span class="amt out">${rp(k.j)}</span></div>`).join('')
+      : `<div class="lrow"><span class="desc" style="color:#888;font-style:italic">Tidak ada pengeluaran</span></div>`;
 
     el.innerHTML += `
     <div class="lcard">
       <div class="lcard-head">
         <div class="lcard-num">${l.no}</div>
         <div class="lcard-right">
-          <div class="lcard-lokasi">${isTA ? 'Tidak Ada Arisan' : l.lok}</div>
+          <div class="lcard-lokasi">${isTA ? '🚫 Tidak Ada Arisan' : l.lok}</div>
           <div class="lcard-tgl">📅 ${l.tgl}</div>
         </div>
       </div>
       <div class="lcard-body">
         <div class="lcard-section">
-          <div class="lcard-section-title">Pemasukan</div>
+          <div class="lcard-section-title">📥 Pemasukan</div>
           <div class="lrow"><span class="desc">Saldo sebelumnya</span><span class="amt in">${rp(l.sb)}</span></div>
-          <div class="lrow"><span class="desc">Persembahan</span><span class="amt in">${l.pb ? rp(l.pb) : '<span style="color:var(--gray)">–</span>'}</span></div>
+          <div class="lrow"><span class="desc">Persembahan</span><span class="amt in">${l.pb ? rp(l.pb) : '<span style="color:#aaa">–</span>'}</span></div>
           <div class="lrow"><span class="desc">Iuran (15 KK × Rp 30.000)</span><span class="amt in">${rp(l.iu)}</span></div>
           <div class="total-lrow"><span>Total Masuk</span><span style="color:var(--green)">${rp(l.tm)}</span></div>
         </div>
         <div class="lcard-section">
-          <div class="lcard-section-title">Pengeluaran</div>
+          <div class="lcard-section-title">📤 Pengeluaran</div>
           ${keluarRows}
-          <div class="total-lrow"><span>Total Keluar</span><span style="color:var(--red)">${l.tk ? rp(l.tk) : '<span style="color:var(--gray)">–</span>'}</span></div>
+          <div class="total-lrow"><span>Total Keluar</span><span style="color:var(--red)">${l.tk ? rp(l.tk) : '<span style="color:#aaa">–</span>'}</span></div>
         </div>
         <div class="saldo-strip">
-          <div class="lbl">Sisa Saldo</div>
+          <div class="lbl">💰 Sisa Saldo</div>
           <div class="amt">${rp(l.sa)}</div>
         </div>
       </div>
@@ -502,15 +539,14 @@ function renderLaporan() {
   });
 }
 
-// ── RENDER ARISAN TABLE ──
 function renderArisan() {
   const t = document.getElementById('tbl-arisan');
   let h = '<thead><tr>';
-  h += '<th class="sticky-col" style="text-align:left;min-width:140px">Nama</th>';
+  h += '<th class="sticky-col" style="text-align:left;min-width:150px">Nama</th>';
   sessions.forEach(s => {
     const isTA = s.lok === 'TIDAK ARISAN';
-    const shortName = s.lok === 'TIDAK ARISAN' ? 'Tdk Arisan' : s.lok.split(' ')[0];
-    h += `<th style="${isTA?'color:var(--gray)':''}">${shortName}<br><span style="font-weight:500;font-size:0.6rem">${s.tgl.replace('\n',' ')}</span></th>`;
+    const shortName = isTA ? 'LIBUR' : s.lok.split(' ')[0];
+    h += `<th style="${isTA?'color:var(--gray)':''}">${shortName}<br><span style="font-weight:600;font-size:0.65rem">${s.tgl.replace('\n',' ')}</span></th>`;
   });
   h += '<th>Total</th></tr></thead><tbody>';
 
@@ -522,14 +558,9 @@ function renderArisan() {
       if (st === 'LUNAS') lunas++;
       cells += `<td>${badge(st)}</td>`;
     });
-    h += `<tr>
-      <td class="sticky-col">${a.nama}</td>
-      ${cells}
-      <td style="font-weight:800;color:var(--navy)">${rp(lunas*100000)}</td>
-    </tr>`;
+    h += `<tr><td class="sticky-col">${a.nama}</td>${cells}<td style="font-weight:900;color:var(--navy)">${rp(lunas*100000)}</td></tr>`;
   });
 
-  // Footer
   h += '<tr class="tbl-foot"><td class="sticky-col">Terkumpul</td>';
   sessions.forEach((s, i) => {
     if (i === 13) { h += '<td style="color:var(--gray)">—</td>'; return; }
@@ -540,14 +571,13 @@ function renderArisan() {
   t.innerHTML = h;
 }
 
-// ── RENDER IURAN TABLE ──
 function renderIuran() {
   const t = document.getElementById('tbl-iuran');
   let h = '<thead><tr>';
-  h += '<th class="sticky-col" style="text-align:left;min-width:140px">Nama</th>';
+  h += '<th class="sticky-col" style="text-align:left;min-width:150px">Nama</th>';
   sessions.forEach(s => {
-    const shortName2 = s.lok === 'TIDAK ARISAN' ? 'Tdk Arisan' : s.lok.split(' ')[0];
-    h += `<th>${shortName2}<br><span style="font-weight:500;font-size:0.6rem">${s.tgl.replace('\n',' ')}</span></th>`;
+    const shortName2 = s.lok === 'TIDAK ARISAN' ? 'Jan' : s.lok.split(' ')[0];
+    h += `<th>${shortName2}<br><span style="font-weight:600;font-size:0.65rem">${s.tgl.replace('\n',' ')}</span></th>`;
   });
   h += '<th>Total</th></tr></thead><tbody>';
 
@@ -560,11 +590,7 @@ function renderIuran() {
       cells += `<td>${badge(ok?'LUNAS':'BELUM')}</td>`;
     });
     const flagBelum = belum > 0 ? `<span class="belum-tag">${belum}x belum</span>` : '';
-    h += `<tr>
-      <td class="sticky-col">${a.nama}${flagBelum}</td>
-      ${cells}
-      <td style="font-weight:800;color:var(--navy)">${rp(lunas*30000)}</td>
-    </tr>`;
+    h += `<tr><td class="sticky-col">${a.nama}${flagBelum}</td>${cells}<td style="font-weight:900;color:var(--navy)">${rp(lunas*30000)}</td></tr>`;
   });
 
   h += '<tr class="tbl-foot"><td class="sticky-col">Terkumpul</td>';
@@ -576,7 +602,6 @@ function renderIuran() {
   t.innerHTML = h;
 }
 
-// ── NAV ──
 function gotoPage(btn, name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.bnav-btn').forEach(b => b.classList.remove('active'));
@@ -585,7 +610,6 @@ function gotoPage(btn, name) {
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-// ── INIT ──
 renderLaporan();
 renderArisan();
 renderIuran();
