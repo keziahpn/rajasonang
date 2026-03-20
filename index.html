@@ -46,7 +46,7 @@ body {
   margin-bottom: 4px;
 }
 .header-title span { color: #fce49a; }
-.header-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+.header-sub { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
 
 .saldo-card {
   background: rgba(255,255,255,0.10);
@@ -57,9 +57,9 @@ body {
   width: 100%;
   max-width: 340px;
 }
-.saldo-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); font-weight: 700; margin-bottom: 6px; }
+.saldo-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); font-weight: 700; margin-bottom: 6px; }
 .saldo-amount { font-size: 2rem; font-weight: 900; color: #fce49a; letter-spacing: -0.01em; }
-.saldo-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
+.saldo-note { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
 
 /* ── BOTTOM NAV ── */
 .bottom-nav {
@@ -127,19 +127,17 @@ body {
   display: flex; align-items: center; justify-content: space-between;
 }
 
-/* ANGKA NOMOR URUT (1, 2, dst) */
+/* ANGKA NOMOR URUT (1, 2, DST) - SEKARANG PUTIH SOLID */
 .lcard-num {
   font-size: 2.2rem; font-weight: 900;
-  color: #ffffff !important; /* DIPAKSA PUTIH */
-  opacity: 0.3; /* AGAR TETAP TERLIHAT ESTETIK DI BELAKANG */
+  color: #ffffff !important;
+  opacity: 0.8 !important;
   line-height: 1;
 }
 
 .lcard-right { text-align: right; }
 .lcard-lokasi { color: #fce49a; font-weight: 800; font-size: 0.92rem; }
-
-/* TANGGAL DI KARTU */
-.lcard-tgl { color: #ffffff !important; font-size: 0.75rem; }
+.lcard-tgl { color: #ffffff !important; opacity: 1 !important; font-size: 0.75rem; font-weight: 700; }
 
 .lcard-body { padding: 0; }
 .lcard-section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
@@ -153,13 +151,10 @@ body {
   padding: 5px 0; font-size: 0.88rem; border-bottom: 1px dashed #f0ede6;
 }
 .lrow .desc { color: #444; flex: 1; padding-right: 10px; }
+.lrow .amt { font-weight: 800; white-space: nowrap; }
+.lrow .amt.in { color: var(--green); }
+.lrow .amt.out { color: var(--red); }
 
-/* ANGKA PEMASUKAN & PENGELUARAN */
-.lrow .amt { font-weight: 800; white-space: nowrap; color: #1f2937; }
-.lrow .amt.in { color: #1a7a4b !important; } /* TETAP HIJAU BIAR GAK BINGUNG */
-.lrow .amt.out { color: #c0392b !important; } /* TETAP MERAH BIAR GAK BINGUNG */
-
-/* ANGKA TOTAL DI MASING-MASING SEKSI */
 .total-lrow {
   display: flex; justify-content: space-between;
   padding: 8px 0 0; font-weight: 800; font-size: 0.9rem;
@@ -171,9 +166,7 @@ body {
   padding: 13px 16px;
   display: flex; justify-content: space-between; align-items: center;
 }
-.saldo-strip .lbl { font-size: 0.72rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; }
-
-/* ANGKA SISA SALDO */
+.saldo-strip .lbl { font-size: 0.72rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; }
 .saldo-strip .amt { font-size: 1.15rem; font-weight: 900; color: #ffffff !important; }
 
 /* ── TABLE STYLES ── */
@@ -183,29 +176,36 @@ body {
 }
 .tbl-top { background: var(--navy); padding: 13px 16px; }
 .tbl-top .tit { color: white; font-weight: 800; font-size: 0.95rem; }
-.tbl-top .sub { color: rgba(255,255,255,0.6); font-size: 0.75rem; }
+.tbl-top .sub { color: rgba(255,255,255,0.7); font-size: 0.75rem; }
 .tbl-scroll { overflow-x: auto; }
 
 table { border-collapse: collapse; font-size: 0.78rem; white-space: nowrap; width: 100%; }
 th {
-  background: #f0f1f5; padding: 9px 10px; text-align: center; color: var(--navy);
-  font-weight: 800; font-size: 0.68rem; text-transform: uppercase;
-  border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 1;
+  background: var(--navy); padding: 12px 10px; text-align: center; color: #fce49a;
+  font-weight: 800; font-size: 0.75rem; text-transform: uppercase;
+  border-bottom: 2px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 1;
 }
 
-/* TANGGAL DI HEADER TABEL */
-th span { color: #1a2e52 !important; opacity: 0.6; display: block; margin-top: 2px; }
+/* TANGGAL DI HEADER TABEL - SEKARANG PUTIH SOLID */
+th span { 
+  color: #ffffff !important; 
+  opacity: 1 !important; 
+  display: block; 
+  font-size: 0.6rem; 
+  font-weight: 600; 
+  margin-top: 4px;
+}
 
 th.sticky-col, td.sticky-col { position: sticky; left: 0; z-index: 2; }
-th.sticky-col { background: #e8eaf0; }
+th.sticky-col { background: var(--navy); color: #fce49a; }
 td.sticky-col { background: white; font-weight: 700; border-right: 1.5px solid var(--border); }
-td { padding: 9px 10px; border-bottom: 1px solid #f0f0f0; text-align: center; }
+td { padding: 12px 10px; border-bottom: 1px solid #f0f0f0; text-align: center; }
 
-.badge { border-radius: 20px; font-size: 0.72rem; font-weight: 800; padding: 3px 9px; }
-.b-lunas { background: var(--green-bg); color: var(--green); }
-.b-dapat { background: var(--amber-bg); color: var(--amber); }
-.b-belum { background: var(--red-bg); color: var(--red); }
-.b-libur { background: var(--gray-bg); color: var(--gray); }
+.badge { border-radius: 20px; font-size: 0.72rem; font-weight: 800; padding: 3px 9px; display: inline-block; }
+.b-lunas { background: var(--green-bg); color: var(--green); border: 1px solid #7ecba1; }
+.b-dapat { background: var(--amber-bg); color: var(--gold); border: 1px solid #f6d473; }
+.b-belum { background: var(--red-bg); color: var(--red); border: 1px solid #e8a49e; }
+.b-libur { background: var(--gray-bg); color: var(--gray); border: 1px solid #d1d5db; }
 </style>
 </head>
 <body>
@@ -222,13 +222,13 @@ td { padding: 9px 10px; border-bottom: 1px solid #f0f0f0; text-align: center; }
 
 <div class="bottom-nav">
   <button class="bnav-btn active" onclick="gotoPage(this,'laporan')">
-    <div class="icon">📋</div><div>Laporan</div><div class="bnav-dot"></div>
+    <div class="icon">📋</div><div>Laporan</div>
   </button>
   <button class="bnav-btn" onclick="gotoPage(this,'arisan')">
-    <div class="icon">🏆</div><div>Arisan</div><div class="bnav-dot"></div>
+    <div class="icon">🏆</div><div>Arisan</div>
   </button>
   <button class="bnav-btn" onclick="gotoPage(this,'iuran')">
-    <div class="icon">💵</div><div>Iuran</div><div class="bnav-dot"></div>
+    <div class="icon">💵</div><div>Iuran</div>
   </button>
 </div>
 
@@ -262,11 +262,79 @@ td { padding: 9px 10px; border-bottom: 1px solid #f0f0f0; text-align: center; }
 </div>
 
 <script>
-// Data & Scripts (Tetap sama seperti aslinya agar fungsi tidak rusak)
-const sessions = [{no:1,tgl:"09 Jul\n2024",lok:"Ruth Tanjung"},{no:2,tgl:"05 Okt\n2024",lok:"Julius Sitinjak"},{no:3,tgl:"02 Nov\n2024",lok:"Dira Samosir"},{no:4,tgl:"01 Feb\n2025",lok:"Olivia Pardosi"},{no:5,tgl:"01 Mar\n2025",lok:"Zofran Pakpahan"},{no:6,tgl:"05 Apr\n2025",lok:"Randa Sinaga"},{no:7,tgl:"03 Mei\n2025",lok:"Vincent Pakpahan"},{no:8,tgl:"08 Jun\n2025",lok:"Tonggi Gultom"},{no:9,tgl:"06 Jul\n2025",lok:"Kezia Nababan"},{no:10,tgl:"05 Agu\n2025",lok:"Santa Nainggolan"},{no:11,tgl:"06 Sep\n2025",lok:"Kareen Pakpahan"},{no:12,tgl:"04 Okt\n2025",lok:"Lamria Pakpahan"},{no:13,tgl:"25 Nov\n2025",lok:"Mikhael Pakpahan"},{no:14,tgl:"Jan\n2026",lok:"TIDAK ARISAN"},{no:15,tgl:"07 Feb\n2026",lok:"Marcello Manurung"},{no:16,tgl:"07 Mar\n2026",lok:"Kristella Pakpahan"}];
-const laporan = [{no:1,tgl:"09 Juli 2024",lok:"Ruth Tanjung",sb:4328000,pb:53000,iu:450000,tm:4831000,klr:[{tgl:"25 Sep 2025",ket:"Sipaet-Paet Kel. Julius Sitinjak",j:350000},{tgl:"24 Sep 2025",ket:"Kunjungan Kasih Kel. Kezia Nababan",j:200000}],tk:550000,sa:4281000},{no:2,tgl:"05 Oktober 2024",lok:"Julius Sitinjak",sb:4281000,pb:78000,iu:450000,tm:4809000,klr:[{tgl:"13 Okt 2025",ket:"Memberangkatkan Keluarga Julius",j:1000000}],tk:1000000,sa:3809000},{no:3,tgl:"02 November 2024",lok:"Dira Samosir / Br. Tamba",sb:3809000,pb:69000,iu:450000,tm:4328000,klr:[{tgl:"",ket:"Menalangi Kel. Cello",j:190000},{tgl:"",ket:"Menalangi Kel. Vincent",j:190000},{tgl:"15 Nov 2025",ket:"Kunjungan Sipaet-Paet Kel. Santa",j:350000}],tk:730000,sa:3598000},{no:4,tgl:"01 Februari 2025",lok:"Olivia Pardosi / Br. Sitinjak",sb:3598000,pb:87000,iu:450000,tm:4135000,klr:[{tgl:"25 Feb 2025",ket:"Kunjungan Kasih Kel. Kezia Nababan",j:200000},{tgl:"27 Feb 2025",ket:"Kunjungan Kasih Kel. Cello",j:200000}],tk:400000,sa:3735000},{no:5,tgl:"01 Maret 2025",lok:"Zofran Pakpahan",sb:3735000,pb:59000,iu:450000,tm:4244000,klr:[{tgl:"15 Feb 2025",ket:"Kunjungan Kasih Kel. Randa",j:200000},{tgl:"01 Mar 2025",ket:"Kunjungan Kasih Kel. Zofran",j:200000}],tk:400000,sa:3844000},{no:6,tgl:"05 April 2025",lok:"Randa Sinaga",sb:3844000,pb:80000,iu:450000,tm:4374000,klr:[{tgl:"15 Feb 2025",ket:"Kunjungan Kasih Kel. Kristella",j:200000}],tk:200000,sa:4174000},{no:7,tgl:"03 Mei 2025",lok:"Vincent Pakpahan",sb:4174000,pb:70000,iu:450000,tm:4694000,klr:[{tgl:"03 Mei 2025",ket:"Amplop 100 pcs",j:24000}],tk:24000,sa:4670000},{no:8,tgl:"08 Juni 2025",lok:"Tonggi Gultom",sb:4670000,pb:72000,iu:450000,tm:5192000,klr:[{tgl:"",ket:"Mamoholi Dira Samosir",j:150000}],tk:150000,sa:5042000},{no:9,tgl:"06 Juli 2025",lok:"Kezia Nababan",sb:5042000,pb:57000,iu:450000,tm:5549000,klr:[{tgl:"",ket:"Anak Berprestasi: Tonggi (Peringkat 1)",j:200000},{tgl:"",ket:"Anak Berprestasi: Samuel (Peringkat 1)",j:200000},{tgl:"",ket:"Anak Berprestasi: Vincent (Peringkat 2)",j:150000},{tgl:"",ket:"Anak Berprestasi: Sharena (Peringkat 2)",j:150000}],tk:700000,sa:4849000},{no:10,tgl:"05 Agustus 2025",lok:"Santa Nainggolan",sb:4849000,pb:57000,iu:450000,tm:5356000,klr:[{tgl:"",ket:"Kunjungan Kasih Kel. Kezia Nababan",j:200000}],tk:200000,sa:4649000},{no:11,tgl:"06 September 2025",lok:"Kareen Pakpahan",sb:4649000,pb:51000,iu:450000,tm:5150000,klr:[{tgl:"",ket:"Kunjungan Kasih: Olivia Pakpahan",j:200000},{tgl:"",ket:"Kunjungan Kasih: Zofran Pakpahan",j:200000},{tgl:"",ket:"Kunjungan Kasih: Kristella Pakpahan",j:200000},{tgl:"",ket:"Kunjungan Kasih: Cello Manurung",j:200000},{tgl:"",ket:"Kunjungan Kasih: Amira + Falan Sinaga",j:400000}],tk:1200000,sa:3950000},{no:12,tgl:"04 Oktober 2025",lok:"Lamria br. Pakpahan",sb:3950000,pb:60000,iu:450000,tm:4460000,klr:[{tgl:"13 Sep 2025",ket:"Mamoholi Kel. Olivia Pardosi",j:150000}],tk:150000,sa:4310000},{no:13,tgl:"25 November 2025",lok:"Mikhael Pakpahan",sb:4310000,pb:0,iu:450000,tm:4760000,klr:[{tgl:"13 Sep 2025",ket:"Borhat-Borhat Keluarga Randa",j:1000000}],tk:1000000,sa:3760000},{no:14,tgl:"Januari 2026",lok:"TIDAK ARISAN",sb:3760000,pb:0,iu:450000,tm:4210000,klr:[{tgl:"07 Feb 2026",ket:"Kunjungan Kasih Kel. Cello Manurung",j:200000},{tgl:"02 Feb 2026",ket:"Borhat-Borhat Orang Tua Meninggal (Lamria)",j:1000000},{tgl:"02 Feb 2026",ket:"Namosok Kel. Lamria",j:350000},{tgl:"15 Feb 2026",ket:"Kunjungan Sipaet-Paet Kel. Randa",j:350000},{tgl:"",ket:"Kunjungan Mangupai Kel. Vincent (Namosok)",j:300000},{tgl:"",ket:"Tambahan Amplop",j:80000}],tk:2280000,sa:1930000},{no:15,tgl:"07 Maret 2026",lok:"Kristella Pakpahan",sb:1930000,pb:71000,iu:450000,tm:2451000,klr:[],tk:0,sa:2451000}];
-const anggotaArisan = [{nama:"Julius Sitinjak",winAt:1,raw:},{nama:"Kareen Pakpahan",winAt:10,raw:},{nama:"Dira Samosir / Br. Tamba",winAt:2,raw:},{nama:"Kezia Nababan",winAt:8,raw:},{nama:"Kristella Pakpahan",winAt:15,raw:},{nama:"Lamria br. Pakpahan",winAt:11,raw:},{nama:"Marcello Manurung",winAt:14,raw:},{nama:"Mikhael Pakpahan",winAt:12,raw:},{nama:"Olivia Pardosi / Br. Sitinjak",winAt:3,raw:},{nama:"Randa Sinaga",winAt:5,raw:},{nama:"Ruth Tanjung",winAt:0,raw:},{nama:"Santa Nainggolan",winAt:9,raw:},{nama:"Tonggi Gultom",winAt:7,raw:},{nama:"Vincent Pakpahan",winAt:6,raw:},{nama:"Zofran Pakpahan",winAt:4,raw:}];
-const anggotaIuran = [{nama:"Julius Sitinjak",d:},{nama:"Kareen Pakpahan",d:},{nama:"Dira Samosir / Br. Tamba",d:},{nama:"Kezia Nababan",d:},{nama:"Kristella Pakpahan",d:},{nama:"Lamria br. Pakpahan",d:},{nama:"Marcello Manurung",d:},{nama:"Mikhael Pakpahan",d:},{nama:"Olivia Pardosi / Br. Sitinjak",d:},{nama:"Randa Sinaga",d:},{nama:"Ruth Tanjung",d:},{nama:"Santa Nainggolan",d:},{nama:"Tonggi Gultom",d:},{nama:"Vincent Pakpahan",d:},{nama:"Zofran Pakpahan",d:}];
+// ── DATA LENGKAP TANPA POTONGAN ──
+const sessions = [
+  {no:1,  tgl:"09 Jul\n2024",  lok:"Ruth Tanjung"},
+  {no:2,  tgl:"05 Okt\n2024",  lok:"Julius Sitinjak"},
+  {no:3,  tgl:"02 Nov\n2024",  lok:"Dira Samosir"},
+  {no:4,  tgl:"01 Feb\n2025",  lok:"Olivia Pardosi"},
+  {no:5,  tgl:"01 Mar\n2025",  lok:"Zofran Pakpahan"},
+  {no:6,  tgl:"05 Apr\n2025",  lok:"Randa Sinaga"},
+  {no:7,  tgl:"03 Mei\n2025",  lok:"Vincent Pakpahan"},
+  {no:8,  tgl:"08 Jun\n2025",  lok:"Tonggi Gultom"},
+  {no:9,  tgl:"06 Jul\n2025",  lok:"Kezia Nababan"},
+  {no:10, tgl:"05 Agu\n2025",  lok:"Santa Nainggolan"},
+  {no:11, tgl:"06 Sep\n2025",  lok:"Kareen Pakpahan"},
+  {no:12, tgl:"04 Okt\n2025",  lok:"Lamria Pakpahan"},
+  {no:13, tgl:"25 Nov\n2025",  lok:"Mikhael Pakpahan"},
+  {no:14, tgl:"Jan\n2026",     lok:"TIDAK ARISAN"},
+  {no:15, tgl:"07 Feb\n2026",  lok:"Marcello Manurung"},
+  {no:16, tgl:"07 Mar\n2026",  lok:"Kristella Pakpahan"},
+];
+
+const laporan = [
+  {no:1, tgl:"09 Juli 2024", lok:"Ruth Tanjung", sb:4328000, pb:53000, iu:450000, tm:4831000, klr:[{tgl:"25 Sep 2025",ket:"Sipaet-Paet Kel. Julius Sitinjak",j:350000},{tgl:"24 Sep 2025",ket:"Kunjungan Kasih Kel. Kezia Nababan",j:200000}], tk:550000, sa:4281000},
+  {no:2, tgl:"05 Oktober 2024", lok:"Julius Sitinjak", sb:4281000, pb:78000, iu:450000, tm:4809000, klr:[{tgl:"13 Okt 2025",ket:"Memberangkatkan Keluarga Julius",j:1000000}], tk:1000000, sa:3809000},
+  {no:3, tgl:"02 November 2024", lok:"Dira Samosir / Br. Tamba", sb:3809000, pb:69000, iu:450000, tm:4328000, klr:[{tgl:"",ket:"Menalangi Kel. Cello",j:190000},{tgl:"",ket:"Menalangi Kel. Vincent",j:190000},{tgl:"15 Nov 2025",ket:"Kunjungan Sipaet-Paet Kel. Santa",j:350000}], tk:730000, sa:3598000},
+  {no:4, tgl:"01 Februari 2025", lok:"Olivia Pardosi / Br. Sitinjak", sb:3598000, pb:87000, iu:450000, tm:4135000, klr:[{tgl:"25 Feb 2025",ket:"Kunjungan Kasih Kel. Kezia Nababan",j:200000},{tgl:"27 Feb 2025",ket:"Kunjungan Kasih Kel. Cello",j:200000}], tk:400000, sa:3735000},
+  {no:5, tgl:"01 Maret 2025", lok:"Zofran Pakpahan", sb:3735000, pb:59000, iu:450000, tm:4244000, klr:[{tgl:"15 Feb 2025",ket:"Kunjungan Kasih Kel. Randa",j:200000},{tgl:"01 Mar 2025",ket:"Kunjungan Kasih Kel. Zofran",j:200000}], tk:400000, sa:3844000},
+  {no:6, tgl:"05 April 2025", lok:"Randa Sinaga", sb:3844000, pb:80000, iu:450000, tm:4374000, klr:[{tgl:"15 Feb 2025",ket:"Kunjungan Kasih Kel. Kristella",j:200000}], tk:200000, sa:4174000},
+  {no:7, tgl:"03 Mei 2025", lok:"Vincent Pakpahan", sb:4174000, pb:70000, iu:450000, tm:4694000, klr:[{tgl:"03 Mei 2025",ket:"Amplop 100 pcs",j:24000}], tk:24000, sa:4670000},
+  {no:8, tgl:"08 Juni 2025", lok:"Tonggi Gultom", sb:4670000, pb:72000, iu:450000, tm:5192000, klr:[{tgl:"",ket:"Mamoholi Dira Samosir",j:150000}], tk:150000, sa:5042000},
+  {no:9, tgl:"06 Juli 2025", lok:"Kezia Nababan", sb:5042000, pb:57000, iu:450000, tm:5549000, klr:[{tgl:"",ket:"Anak Berprestasi: Tonggi (Peringkat 1)",j:200000},{tgl:"",ket:"Anak Berprestasi: Samuel (Peringkat 1)",j:200000},{tgl:"",ket:"Anak Berprestasi: Vincent (Peringkat 2)",j:150000},{tgl:"",ket:"Anak Berprestasi: Sharena (Peringkat 2)",j:150000}], tk:700000, sa:4849000},
+  {no:10,tgl:"05 Agustus 2025", lok:"Santa Nainggolan", sb:4849000, pb:57000, iu:450000, tm:5356000, klr:[{tgl:"",ket:"Kunjungan Kasih Kel. Kezia Nababan",j:200000}], tk:200000, sa:4649000},
+  {no:11,tgl:"06 September 2025", lok:"Kareen Pakpahan", sb:4649000, pb:51000, iu:450000, tm:5150000, klr:[{tgl:"",ket:"Kunjungan Kasih: Olivia Pakpahan",j:200000},{tgl:"",ket:"Kunjungan Kasih: Zofran Pakpahan",j:200000},{tgl:"",ket:"Kunjungan Kasih: Kristella Pakpahan",j:200000},{tgl:"",ket:"Kunjungan Kasih: Cello Manurung",j:200000},{tgl:"",ket:"Kunjungan Kasih: Amira + Falan Sinaga",j:400000}], tk:1200000, sa:3950000},
+  {no:12,tgl:"04 Oktober 2025", lok:"Lamria br. Pakpahan", sb:3950000, pb:60000, iu:450000, tm:4460000, klr:[{tgl:"13 Sep 2025",ket:"Mamoholi Kel. Olivia Pardosi",j:150000}], tk:150000, sa:4310000},
+  {no:13,tgl:"25 November 2025", lok:"Mikhael Pakpahan", sb:4310000, pb:0, iu:450000, tm:4760000, klr:[{tgl:"13 Sep 2025",ket:"Borhat-Borhat Keluarga Randa",j:1000000}], tk:1000000, sa:3760000},
+  {no:14,tgl:"Januari 2026", lok:"TIDAK ARISAN", sb:3760000, pb:0, iu:450000, tm:4210000, klr:[{tgl:"07 Feb 2026",ket:"Kunjungan Kasih Kel. Cello Manurung",j:200000},{tgl:"02 Feb 2026",ket:"Borhat-Borhat Orang Tua Meninggal (Lamria)",j:1000000},{tgl:"02 Feb 2026",ket:"Namosok Kel. Lamria",j:350000},{tgl:"15 Feb 2026",ket:"Kunjungan Sipaet-Paet Kel. Randa",j:350000},{tgl:"",ket:"Kunjungan Mangupai Kel. Vincent (Namosok)",j:300000},{tgl:"",ket:"Tambahan Amplop",j:80000}], tk:2280000, sa:1930000},
+  {no:15,tgl:"07 Maret 2026", lok:"Kristella Pakpahan", sb:1930000, pb:71000, iu:450000, tm:2451000, klr:[], tk:0, sa:2451000},
+];
+
+const anggotaArisan = [
+  {nama:"Julius Sitinjak", winAt:1, raw:},
+  {nama:"Kareen Pakpahan", winAt:10, raw:},
+  {nama:"Dira Samosir / Br. Tamba", winAt:2, raw:},
+  {nama:"Kezia Nababan", winAt:8, raw:},
+  {nama:"Kristella Pakpahan", winAt:15, raw:},
+  {nama:"Lamria br. Pakpahan", winAt:11, raw:},
+  {nama:"Marcello Manurung", winAt:14, raw:},
+  {nama:"Mikhael Pakpahan", winAt:12, raw:},
+  {nama:"Olivia Pardosi / Br. Sitinjak", winAt:3, raw:},
+  {nama:"Randa Sinaga", winAt:5, raw:},
+  {nama:"Ruth Tanjung", winAt:0, raw:},
+  {nama:"Santa Nainggolan", winAt:9, raw:},
+  {nama:"Tonggi Gultom", winAt:7, raw:},
+  {nama:"Vincent Pakpahan", winAt:6, raw:},
+  {nama:"Zofran Pakpahan", winAt:4, raw:},
+];
+
+const anggotaIuran = [
+  {nama:"Julius Sitinjak", d:},
+  {nama:"Kareen Pakpahan", d:},
+  {nama:"Dira Samosir / Br. Tamba", d:},
+  {nama:"Kezia Nababan", d:},
+  {nama:"Kristella Pakpahan", d:},
+  {nama:"Lamria br. Pakpahan", d:},
+  {nama:"Marcello Manurung", d:},
+  {nama:"Mikhael Pakpahan", d:},
+  {nama:"Olivia Pardosi / Br. Sitinjak", d:},
+  {nama:"Randa Sinaga", d:},
+  {nama:"Ruth Tanjung", d:},
+  {nama:"Santa Nainggolan", d:},
+  {nama:"Tonggi Gultom", d:},
+  {nama:"Vincent Pakpahan", d:},
+  {nama:"Zofran Pakpahan", d:},
+];
 
 function rp(n) { return 'Rp\u00a0' + Number(n).toLocaleString('id-ID'); }
 function arisanStatus(a, i) { if (i === 13) return 'LIBUR'; if (i === a.winAt) return 'DAPAT'; return a.raw[i] === 1 ? 'LUNAS' : 'BELUM'; }
@@ -281,12 +349,12 @@ function renderLaporan() {
   const el = document.getElementById('laporanList');
   laporan.forEach(l => {
     const isTA = l.lok === 'TIDAK ARISAN';
-    const keluarRows = l.klr.length ? l.klr.map(k=>`<div class="lrow"><span class="desc">${k.ket}</span><span class="amt out">${rp(k.j)}</span></div>`).join('') : `<div class="lrow"><span class="desc">Tidak ada pengeluaran</span></div>`;
+    const keluarRows = l.klr.length ? l.klr.map(k=>`<div class="lrow"><span class="desc">${k.ket}</span><span class="amt out">${rp(k.j)}</span></div>`).join('') : `<div class="lrow"><span class="desc" style="color:var(--gray)">Tidak ada pengeluaran</span></div>`;
     el.innerHTML += `
     <div class="lcard">
       <div class="lcard-head"><div class="lcard-num">${l.no}</div><div class="lcard-right"><div class="lcard-lokasi">${isTA ? 'Tidak Ada Arisan' : l.lok}</div><div class="lcard-tgl">📅 ${l.tgl}</div></div></div>
       <div class="lcard-body">
-        <div class="lcard-section"><div class="lcard-section-title">Pemasukan</div><div class="lrow"><span class="desc">Saldo sebelumnya</span><span class="amt in">${rp(l.sb)}</span></div><div class="lrow"><span class="desc">Persembahan</span><span class="amt in">${rp(l.pb)}</span></div><div class="lrow"><span class="desc">Iuran</span><span class="amt in">${rp(l.iu)}</span></div><div class="total-lrow"><span>Total Masuk</span><span class="amt in">${rp(l.tm)}</span></div></div>
+        <div class="lcard-section"><div class="lcard-section-title">Pemasukan</div><div class="lrow"><span class="desc">Saldo sebelumnya</span><span class="amt in">${rp(l.sb)}</span></div><div class="lrow"><span class="desc">Persembahan</span><span class="amt in">${rp(l.pb)}</span></div><div class="lrow"><span class="desc">Iuran (15 KK × Rp 30.000)</span><span class="amt in">${rp(l.iu)}</span></div><div class="total-lrow"><span>Total Masuk</span><span class="amt in">${rp(l.tm)}</span></div></div>
         <div class="lcard-section"><div class="lcard-section-title">Pengeluaran</div>${keluarRows}<div class="total-lrow"><span>Total Keluar</span><span class="amt out">${rp(l.tk)}</span></div></div>
         <div class="saldo-strip"><div class="lbl">Sisa Saldo</div><div class="amt">${rp(l.sa)}</div></div>
       </div>
@@ -296,7 +364,7 @@ function renderLaporan() {
 
 function renderArisan() {
   const t = document.getElementById('tbl-arisan');
-  let h = '<thead><tr><th class="sticky-col">Nama</th>';
+  let h = '<thead><tr><th class="sticky-col" style="text-align:left;min-width:140px">Nama</th>';
   sessions.forEach(s => { h += `<th>${s.lok.split(' ')}<br><span>${s.tgl.replace('\n',' ')}</span></th>`; });
   h += '</tr></thead><tbody>';
   anggotaArisan.forEach(a => {
@@ -309,7 +377,7 @@ function renderArisan() {
 
 function renderIuran() {
   const t = document.getElementById('tbl-iuran');
-  let h = '<thead><tr><th class="sticky-col">Nama</th>';
+  let h = '<thead><tr><th class="sticky-col" style="text-align:left;min-width:140px">Nama</th>';
   sessions.forEach(s => { h += `<th>${s.lok.split(' ')}<br><span>${s.tgl.replace('\n',' ')}</span></th>`; });
   h += '</tr></thead><tbody>';
   anggotaIuran.forEach(a => {
